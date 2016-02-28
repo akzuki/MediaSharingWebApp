@@ -7,7 +7,7 @@ angular.module('myApp')
 
         // Get all the files from server
         ajaxFunctions.getAllFiles = function() {
-            return $http.get(urlBase + 'files/latest/30')
+            return $http.get(urlBase + 'files/latest/20')
                 .success(function(data) {
                     return data;
                 })
@@ -16,50 +16,12 @@ angular.module('myApp')
                 });
         };
 
-
-        //        Search by UserID
-        ajaxFunctions.searchUserId = function(args) {
-            return $http.get('http://util.mw.metropolia.fi/ImageRekt/api/v2/files/user/' + args)
-                .success(function(data) {
-                    //                    searchResult.add(data);
-                    return data;
-                })
-                .error(function(err) {
-                    return err;
-                });
-        };
-
-        //        Search by type (audio/video/image)
-
-        ajaxFunctions.searchType = function(args) {
-            return $http.get('http://util.mw.metropolia.fi/ImageRekt/api/v2/files/type/' + args)
-                .success(function(data) {
-                    //                    searchResult.add(data);
-                    return data;
-                })
-                .error(function(err) {
-                    return err;
-                });
-        };
-
-        //        Search by title
-
-        ajaxFunctions.searchTitle = function(args) {
-            return $http.post(urlBase + 'files/search/title', $httpParamSerializer(args), {
-                //                transformRequest: angular.identity,
+        // Upload file
+        ajaxFunctions.uploadFile = function(args) {
+            return $http.post(urlBase + 'upload', args, {
+                transformRequest: angular.identity,
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                }
-            });
-        };
-
-        //        Search by description
-
-        ajaxFunctions.searchDesc = function(args) {
-            return $http.post(urlBase + 'files/search/desc', $httpParamSerializer(args), {
-                //                transformRequest: angular.identity,
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
+                    'Content-Type': undefined
                 }
             });
         };
@@ -75,10 +37,85 @@ angular.module('myApp')
             });
         };
 
+        // Register function
+        ajaxFunctions.register = function(args) {
+            return $http.post(urlBase + 'register', $httpParamSerializer(args), {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+        };
+
+
+        // Check if username exists
+        ajaxFunctions.checkUsername = function(args) {
+            return $http.post(urlBase + 'user/exists', $httpParamSerializer(args), {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+        };
+
+
+        // Get a file by ID
+        ajaxFunctions.getFileByID = function(args) {
+            return $http.get(urlBase + 'file/' + args)
+                .success(function(data) {
+                    return data;
+                })
+                .error(function(err) {
+                    return err;
+                });
+        };
+
+        //        Search by UserID
+        ajaxFunctions.searchByUserId = function(args) {
+            return $http.get(urlBase + 'files/user/' + args)
+                .success(function(data) {
+                    return data;
+                })
+                .error(function(err) {
+                    return err;
+                });
+        };
+
+        //        Search by type (audio/video/image)
+
+        ajaxFunctions.searchByType = function(args) {
+            return $http.get(urlBase + 'files/type/' + args)
+                .success(function(data) {
+                    return data;
+                })
+                .error(function(err) {
+                    return err;
+                });
+        };
+
+        //        Search by title
+
+        ajaxFunctions.searchByTitle = function(args) {
+            return $http.post(urlBase + 'files/search/title', $httpParamSerializer(args), {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+        };
+
+        //        Search by description
+
+        ajaxFunctions.searchByDesc = function(args) {
+            return $http.post(urlBase + 'files/search/desc', $httpParamSerializer(args), {
+                //                transformRequest: angular.identity,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+        };
+
         //        Like function
 
         ajaxFunctions.likeAFile = function(args1, args2) {
-            return $http.get('http://util.mw.metropolia.fi/ImageRekt/api/v2/like/' + args1 + '/' + args2)
+            return $http.get(urlBase + 'like/' + args1 + '/' + args2)
                 .success(function(data) {
                     //                    searchResult.add(data);
                     return data;
@@ -91,7 +128,7 @@ angular.module('myApp')
         //        Unlike function
 
         ajaxFunctions.unlikeAFile = function(args1, args2) {
-            return $http.get('http://util.mw.metropolia.fi/ImageRekt/api/v2/unlike/' + args1 + '/' + args2)
+            return $http.get(urlBase+ 'unlike/' + args1 + '/' + args2)
                 .success(function(data) {
                     //                    searchResult.add(data);
                     return data;

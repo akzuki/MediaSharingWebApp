@@ -7,7 +7,7 @@ angular.module('myApp')
 
         // Get all the files from server
         ajaxFunctions.getAllFiles = function() {
-            return $http.get(urlBase + 'files/latest/20')
+            return $http.get(urlBase + 'files/latest/200')
                 .success(function(data) {
                     return data;
                 })

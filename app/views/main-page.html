@@ -1,0 +1,31 @@
+<section id="mainPage">
+	<div class="container-fluid" id="image-section">
+	<h3>Images go here</h3>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="image in images | limitTo: limit">
+				<img class="img-responsive" ng-src="http://util.mw.metropolia.fi/uploads/{{image.thumbNails.medium}}" alt="{{image.title}}" iid="{{image.fileId}}">
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid" id="video-section">
+	<h3>Videos go here</h3>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="video in videos | limitTo: limit">
+				<video width="300px" height="300px" controls>
+                    <source ng-src="{{trustSrc(video.path)}}" type="{{video.mimeType}}">
+                </video>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid" id="audio-section">
+	<h3>Audios go here</h3>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="audio in audios | limitTo: limit">
+				<audio controls>
+                    <source ng-src="{{trustSrc(audio.path)}}" type="{{audio.mimeType}}">
+                </audio>
+			</div>
+		</div>
+	</div>
+</section>

@@ -37,9 +37,9 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <!--                    <li><a href="#">Search</a></li>-->
-            <li><a href="#" id="signIn" data-toggle="modal" data-target="#loginModal" ng-hide="loggedIn">Sign In</a></li>
-            <li><a href="#" id="upload" data-toggle="modal" data-target="#uploadModal" ng-show="loggedIn">Upload</a></li>
-            <li><a href="#" id="logOut" ng-show="loggedIn" ng-click="logOut()">Log Out</a></li>
+            <li><a href="" id="signIn" data-toggle="modal" data-target="#loginModal" ng-hide="loggedIn">Sign In</a></li>
+            <li><a href="" id="upload" data-toggle="modal" data-target="#uploadModal" ng-show="loggedIn">Upload</a></li>
+            <li><a href="" id="logOut" ng-show="loggedIn" ng-click="logOut()">Log Out</a></li>
           </ul>
           <div class="col-sm-3 col-md-3 pull-right">
             <form class="navbar-form" role="search">
@@ -98,9 +98,11 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-
-    <img class="img-responsive" ng-repeat="file in files" src="http://util.mw.metropolia.fi/uploads/{{file.path}}">
-
+    
+    
+    <div ng-view>
+    </div>
+    
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
     !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
@@ -130,6 +132,7 @@
     <script src="scripts/controllers/mainController.js"></script>
     <script src="scripts/controllers/userController.js"></script>
     <script src="scripts/controllers/uploadController.js"></script>
+    <script src="scripts/controllers/dataController.js"></script>
     <!-- endbuild -->
   </body>
 </html>

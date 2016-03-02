@@ -1,0 +1,12 @@
+<section id="audio-page">
+	<div class="container-fluid" id="audio-section">
+	<h3>Audios go here</h3>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="audio in audios | limitTo: limit">
+				<audio controls>
+                    <source ng-src="{{trustSrc(audio.path)}}" type="{{audio.mimeType}}">
+                </audio>
+			</div>
+		</div>
+	</div>
+</section>

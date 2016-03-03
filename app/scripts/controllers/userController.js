@@ -1,7 +1,7 @@
+'use strict';
+
 angular.module('myApp')
     .controller('userController', function($scope, AjaxService, MediaService) {
-        $scope.loginUsername, $scope.loginPassword;
-        $scope.registerUsername, $scope.registerPassword, $scope.registerEmail;
 
 
         $scope.logIn = function() {

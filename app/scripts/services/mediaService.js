@@ -1,20 +1,24 @@
 'use strict';
 
 angular.module('myApp')
-    .service('MediaService', function ($rootScope) {
+    .service('MediaService', function() {
         var mediaVariables = {
             mediaUrl: 'http://util.mw.metropolia.fi/uploads/',
-            userData: {}
-        };  
-     
-        mediaVariables.loggedIn = function (key, value){
-            mediaVariables[key] = value;
-            $rootScope.$broadcast('loggedIn', 'Logged in successfully');
+            userData: {},
+            fileId: {}
         };
 
-        mediaVariables.loggedOut = function (){
+        mediaVariables.loggedIn = function(key, value) {
+            mediaVariables[key] = value;
+        };
+
+        mediaVariables.loggedOut = function() {
             mediaVariables.userData = {};
         };
-    
+
+        mediaVariables.setVariables = function(key, value) {
+            mediaVariables[key] = value;
+        };
+
         return mediaVariables;
     });

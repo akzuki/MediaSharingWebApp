@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('myApp')
     .controller('uploadController', function($scope, AjaxService, MediaService) {
 

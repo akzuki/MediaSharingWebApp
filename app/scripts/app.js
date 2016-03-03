@@ -16,19 +16,23 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/main-page.html',
-        controller: 'mainController'
+        controller: 'dataController'
       })
       .when('/image-page', {
         templateUrl: 'views/image-page.html',
-        controller: 'imageController'
+        controller: 'dataController'
       })
       .when('/video-page', {
         templateUrl: 'views/video-page.html',
-        controller: 'videoController'
+        controller: 'dataController'
       })
       .when('/audio-page', {
         templateUrl: 'views/audio-page.html',
-        controller: 'audioController'
+        controller: 'dataController'
+      })
+      .when('/viewFile/:fileId', {
+        templateUrl: 'views/single-item.html',
+        controller: 'viewFileController'
       })
       .otherwise({
         redirectTo: '/'

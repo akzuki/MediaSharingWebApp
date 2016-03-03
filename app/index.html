@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="myApp">
+  <body ng-app="myApp" ng-controller="mainController as mainCtrl">
     <!--[if lte IE 8]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -36,9 +36,9 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="#/image-page">Page 1</a></li>
-            <li><a href="#/video-page">Page 2</a></li>
-            <li><a href="#/audio-page">Page 3</a></li>
+            <li><a ng-click="viewImages()">Image</a></li>
+            <li><a ng-click="viewVideos()">Video</a></li>
+            <li><a ng-click="viewAudios()">Audio</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <!--                    <li><a href="#">Search</a></li>-->
@@ -63,7 +63,7 @@
     <!-- Slideshow -->
     
     
-    <div ng-view>
+    <div ng-view="">
     </div>
     
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -95,9 +95,8 @@
     <script src="scripts/controllers/mainController.js"></script>
     <script src="scripts/controllers/userController.js"></script>
     <script src="scripts/controllers/uploadController.js"></script>
-    <script src="scripts/controllers/imageController.js"></script>
-    <script src="scripts/controllers/audioController.js"></script>
-    <script src="scripts/controllers/videoController.js"></script>
+    <script src="scripts/controllers/dataController.js"></script>
+    <script src="scripts/controllers/viewFileController.js"></script>
     <!-- endbuild -->
   </body>
 </html>

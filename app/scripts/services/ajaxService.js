@@ -58,7 +58,7 @@ angular.module('myApp')
 
 
         // Get a file by ID
-        ajaxFunctions.getFileByID = function(args) {
+        ajaxFunctions.getFileById = function(args) {
             return $http.get(urlBase + 'file/' + args)
                 .success(function(data) {
                     return data;
@@ -128,7 +128,7 @@ angular.module('myApp')
         //        Unlike function
 
         ajaxFunctions.unlikeAFile = function(args1, args2) {
-            return $http.get(urlBase+ 'unlike/' + args1 + '/' + args2)
+            return $http.get(urlBase + 'unlike/' + args1 + '/' + args2)
                 .success(function(data) {
                     //                    searchResult.add(data);
                     return data;
@@ -148,6 +148,16 @@ angular.module('myApp')
                 .error(function(err) {
                     return err;
                 });
+        };
+
+        // Post comment
+        ajaxFunctions.postComment = function(id, data) {
+            return $http.post(urlBase + 'comment/file/' + id , $httpParamSerializer(data), {
+                //                transformRequest: angular.identity,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
         };
 
         //Get comments of a file    
